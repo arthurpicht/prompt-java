@@ -1,8 +1,8 @@
-package de.arthurpicht.dynamicPrompt.formattedChunks;
+package de.arthurpicht.prompt.formattedChunks;
 
 import com.diogonunes.jcolor.Ansi;
-import de.arthurpicht.dynamicPrompt.Config;
-import de.arthurpicht.dynamicPrompt.info.WorkingDir;
+import de.arthurpicht.prompt.Config;
+import de.arthurpicht.prompt.info.WorkingDir;
 
 public class WorkingDirChunk {
 

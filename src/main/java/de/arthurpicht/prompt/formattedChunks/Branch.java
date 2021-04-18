@@ -1,9 +1,9 @@
-package de.arthurpicht.dynamicPrompt.formattedChunks;
+package de.arthurpicht.prompt.formattedChunks;
 
 import com.diogonunes.jcolor.Ansi;
-import de.arthurpicht.dynamicPrompt.Config;
-import de.arthurpicht.dynamicPrompt.info.BranchStatus;
-import de.arthurpicht.dynamicPrompt.info.Git;
+import de.arthurpicht.prompt.Config;
+import de.arthurpicht.prompt.info.BranchStatus;
+import de.arthurpicht.prompt.info.Git;
 
 import java.nio.file.Path;
 

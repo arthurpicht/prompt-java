@@ -1,4 +1,4 @@
-package de.arthurpicht.dynamicPrompt;
+package de.arthurpicht.prompt;
 
 public class Config {
 

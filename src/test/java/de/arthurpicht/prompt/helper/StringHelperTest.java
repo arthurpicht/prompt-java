@@ -1,4 +1,4 @@
-package de.arthurpicht.dynamicPrompt.helper;
+package de.arthurpicht.prompt.helper;
 
 import org.junit.jupiter.api.Test;
 

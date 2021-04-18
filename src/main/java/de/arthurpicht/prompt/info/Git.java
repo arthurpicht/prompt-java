@@ -1,8 +1,8 @@
-package de.arthurpicht.dynamicPrompt.info;
+package de.arthurpicht.prompt.info;
 
-import de.arthurpicht.dynamicPrompt.helper.ExceptionHandler;
-import de.arthurpicht.dynamicPrompt.helper.InputStreamHelper;
-import de.arthurpicht.dynamicPrompt.helper.StringHelper;
+import de.arthurpicht.prompt.helper.ExceptionHandler;
+import de.arthurpicht.prompt.helper.InputStreamHelper;
+import de.arthurpicht.prompt.helper.StringHelper;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -100,8 +100,24 @@ public class Git {
     }
 
     public static boolean hasStash(Path workingDir) {
-        // TODO
-        return false;
+        try {
+            ProcessBuilder processBuilder = new ProcessBuilder()
+                    .command("git", "stash", "list")
+                    .directory(workingDir.toAbsolutePath().toFile());
+            Process process = processBuilder.start();
+
+            List<String> result = InputStreamHelper.asStringList(process.getInputStream());
+            int exitCode = process.waitFor();
+            if (exitCode > 0) {
+                ExceptionHandler.processExitedWithError("git stash list", exitCode);
+                return false;
+            }
+            return (result.size() > 0);
+
+        } catch (IOException | InterruptedException | IllegalArgumentException e) {
+            ExceptionHandler.handle(e);
+            return false;
+        }
     }
 
 

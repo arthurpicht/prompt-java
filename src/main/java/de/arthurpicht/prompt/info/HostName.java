@@ -1,4 +1,4 @@
-package de.arthurpicht.dynamicPrompt.info;
+package de.arthurpicht.prompt.info;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

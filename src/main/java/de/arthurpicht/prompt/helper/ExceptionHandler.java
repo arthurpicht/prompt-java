@@ -1,6 +1,6 @@
-package de.arthurpicht.dynamicPrompt.helper;
+package de.arthurpicht.prompt.helper;
 
-import de.arthurpicht.dynamicPrompt.Config;
+import de.arthurpicht.prompt.Config;
 
 public class ExceptionHandler {
 

@@ -37,7 +37,7 @@ task extractDependencies(type: Copy, dependsOn: jar) {
 
 task fatJar(type: Jar, dependsOn: extractDependencies) {
     manifest {
-        attributes 'Main-Class': 'de.arthurpicht.de.arthurpicht.dynamicPrompt.Prompt'
+        attributes 'Main-Class': 'de.arthurpicht.prompt.Prompt'
         attributes 'Version': project.property("version")
         attributes 'Build' : new Date().format('yyyyMMddHHmmss')
     }
@@ -52,7 +52,7 @@ task fatJar(type: Jar, dependsOn: extractDependencies) {
 
 task nativeImage(type: Exec, dependsOn: fatJar) {
     mkdir "$buildDir/native"
-    commandLine "/man/java/graalvm/bin/native-image", "-jar", "$buildDir/fatjar/de.arthurpicht.dynamicPrompt-1.0-SNAPSHOT.jar", "$buildDir/native/de.arthurpicht.dynamicPrompt"
+    commandLine "/man/java/graalvm/bin/native-image", "-jar", "$buildDir/fatjar/prompt-java-1.0-SNAPSHOT.jar", "$buildDir/native/prompt"
 }
 
 task javaversion(type: Exec) {

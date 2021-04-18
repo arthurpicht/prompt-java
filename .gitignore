@@ -3,6 +3,6 @@
 .idea
 build
 gradle
-src/test/java/de/arthurpicht/dynamicPrompt/local/*
+src/test/java/de/arthurpicht/prompt/local/*
 gradlew
 gradlew.bat

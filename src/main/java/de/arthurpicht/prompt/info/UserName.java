@@ -1,4 +1,4 @@
-package de.arthurpicht.dynamicPrompt.info;
+package de.arthurpicht.prompt.info;
 
 public class UserName {
 
