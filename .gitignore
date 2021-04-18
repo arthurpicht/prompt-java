@@ -1,0 +1,8 @@
+*~
+.gradle
+.idea
+build
+gradle
+src/test/java/de/arthurpicht/dynamicPrompt/local/*
+gradlew
+gradlew.bat

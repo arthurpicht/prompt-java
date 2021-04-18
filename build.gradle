@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+}
+
+group 'de.arthurpicht'
+version '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation group: 'com.diogonunes', name: 'JColor', version: '5.0.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
+task extractDependencies(type: Copy, dependsOn: jar) {
+    from configurations.runtimeClasspath
+    into "$buildDir/dependencies"
+}
+
+task fatJar(type: Jar, dependsOn: extractDependencies) {
+    manifest {
+        attributes 'Main-Class': 'de.arthurpicht.de.arthurpicht.dynamicPrompt.Prompt'
+        attributes 'Version': project.property("version")
+        attributes 'Build' : new Date().format('yyyyMMddHHmmss')
+    }
+    from {
+        file("$buildDir/dependencies").listFiles().collect { zipTree(it) }
+    }
+    from {
+        file("$buildDir/libs").listFiles().collect { zipTree(it) }
+    }
+    destinationDirectory.set(file("$buildDir/fatjar"))
+}
+
+task nativeImage(type: Exec, dependsOn: fatJar) {
+    mkdir "$buildDir/native"
+    commandLine "/man/java/graalvm/bin/native-image", "-jar", "$buildDir/fatjar/de.arthurpicht.dynamicPrompt-1.0-SNAPSHOT.jar", "$buildDir/native/de.arthurpicht.dynamicPrompt"
+}
+
+task javaversion(type: Exec) {
+    commandLine "java", "--version"
+}
