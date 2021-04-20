@@ -8,8 +8,15 @@ import de.arthurpicht.prompt.formattedChunks.WorkingDirChunk;
 public class Prompt {
 
     public static String prompt() {
-//        return UserName.getUserName() + "@" + HostName.getHostName() + ":" + WorkingDir.getWorkingDir() + "$ ";
-        return Infrastructure.get() + UserAtHost.get() + ":" + WorkingDirChunk.get() + Branch.get() + "$ ";
+
+        String prompt;
+        try {
+            prompt = Infrastructure.get() + UserAtHost.get() + ":" + WorkingDirChunk.get() + Branch.get() + "$ ";
+        } catch (Exception e) {
+            prompt = "[prompt error]$ ";
+        }
+
+        return prompt;
     }
 
     public static void main(String[] args) {

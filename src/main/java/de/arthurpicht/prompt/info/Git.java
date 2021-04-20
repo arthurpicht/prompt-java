@@ -33,9 +33,11 @@ public class Git {
             if (process.waitFor() > 0) return "";
             if (result.size() == 0) return "";
 
-            String resultString = result.get(0);
+            return StringHelper.getStarMarkedLine(result);
 
-            return StringHelper.getLastWord(resultString);
+//            String resultString = result.get(0);
+//
+//            return StringHelper.getLastWord(resultString);
 
         } catch (IOException | InterruptedException | IllegalArgumentException e) {
             ExceptionHandler.handle(e);
@@ -88,7 +90,8 @@ public class Git {
             List<String> result = InputStreamHelper.asStringList(process.getInputStream());
             int exitCode = process.waitFor();
             if (exitCode > 0) {
-                ExceptionHandler.processExitedWithError("git status --porcelain", exitCode);
+                // ignore intentionally
+                // will throw error 128 when executed on newly created branch before committed as upstream branch.
                 return false;
             }
             return (result.size() > 0);

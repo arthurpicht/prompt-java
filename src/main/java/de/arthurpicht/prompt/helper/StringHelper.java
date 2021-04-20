@@ -1,5 +1,7 @@
 package de.arthurpicht.prompt.helper;
 
+import java.util.List;
+
 public class StringHelper {
 
     public static String getLastWord(String line) {
@@ -10,5 +12,13 @@ public class StringHelper {
         if (lastSpaceIndex < 0) return line;
         return line.substring(lastSpaceIndex + 1);
     }
+
+    public static String getStarMarkedLine(List<String> lines) {
+        for (String line : lines) {
+            if (line.startsWith("* ")) return line.substring(2);
+        }
+        return "?";
+    }
+
 
 }
