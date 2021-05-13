@@ -14,7 +14,7 @@ public class Infrastructure {
     private static String getString(String infrastructure) {
         if (infrastructure == null || infrastructure.equals("")) return "";
         infrastructure = "[" + infrastructure + "]";
-        return Color.colorize(infrastructure, Colors.redText);
+        return Color.colorize(infrastructure, Colors.yellowText);
     }
 
 }

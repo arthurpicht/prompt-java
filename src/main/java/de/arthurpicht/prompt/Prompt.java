@@ -1,9 +1,6 @@
 package de.arthurpicht.prompt;
 
-import de.arthurpicht.prompt.formattedChunks.Branch;
-import de.arthurpicht.prompt.formattedChunks.Infrastructure;
-import de.arthurpicht.prompt.formattedChunks.UserAtHost;
-import de.arthurpicht.prompt.formattedChunks.WorkingDirChunk;
+import de.arthurpicht.prompt.formattedChunks.*;
 
 public class Prompt {
 
@@ -11,7 +8,9 @@ public class Prompt {
 
         String prompt;
         try {
-            prompt = Infrastructure.get() + UserAtHost.get() + ":" + WorkingDirChunk.get() + Branch.get() + "$ ";
+            prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + Signs.whiteColon()
+                    + WorkingDirChunk.get() + Branch.get()
+                    + Signs.termination();
 
             // escape trailing $ to prevent unexpected behavior (jumping back cursor), see:
             // https://stackoverflow.com/questions/37424743/sometimes-cursor-jumps-to-start-of-line-in-bash-prompt

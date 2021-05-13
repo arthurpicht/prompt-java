@@ -8,8 +8,19 @@ import de.arthurpicht.prompt.info.UserName;
 public class UserAtHost {
 
     public static String get() {
-        String userAtHost = UserName.getUserName() + "@" + HostName.getHostName();
-        return Color.colorize(userAtHost, Colors.greenText);
+        StringBuilder userAtHost = new StringBuilder();
+
+        if (UserName.getUserName().equals("root")) {
+            userAtHost.append(Color.colorize(UserName.getUserName(), Colors.redText));
+        } else {
+            userAtHost.append(Color.colorize(UserName.getUserName(), Colors.greenText));
+        }
+
+        userAtHost.append(Signs.whiteAdd());
+
+        userAtHost.append(Color.colorize(HostName.getHostName(), Colors.greenText));
+
+        return userAtHost.toString();
     }
 
 }
