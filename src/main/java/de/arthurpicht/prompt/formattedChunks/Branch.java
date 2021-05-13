@@ -1,7 +1,7 @@
 package de.arthurpicht.prompt.formattedChunks;
 
-import com.diogonunes.jcolor.Ansi;
-import de.arthurpicht.prompt.Config;
+import de.arthurpicht.prompt.color.Color;
+import de.arthurpicht.prompt.color.Colors;
 import de.arthurpicht.prompt.info.BranchStatus;
 import de.arthurpicht.prompt.info.Git;
 
@@ -24,13 +24,9 @@ public class Branch {
 
         String branchString = "(" + branchStatus.getBranchName() + ")";
 
-        if (Config.isColorize()) {
-            if (branchStatus.isUnchanged()) return Ansi.colorize(branchString, Colors.greenText);
-            if (branchStatus.isChanged()) return Ansi.colorize(branchString, Colors.redText);
-            return Ansi.colorize(branchString, Colors.yellowText);
-        }
-
-        return branchString;
+        if (branchStatus.isUnchanged()) return Color.colorize(branchString, Colors.greenText);
+        if (branchStatus.isChanged()) return Color.colorize(branchString, Colors.redText);
+        return Color.colorize(branchString, Colors.yellowText);
     }
 
 }

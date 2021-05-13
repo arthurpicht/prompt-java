@@ -35,10 +35,6 @@ public class Git {
 
             return StringHelper.getStarMarkedLine(result);
 
-//            String resultString = result.get(0);
-//
-//            return StringHelper.getLastWord(resultString);
-
         } catch (IOException | InterruptedException | IllegalArgumentException e) {
             ExceptionHandler.handle(e);
             return "";

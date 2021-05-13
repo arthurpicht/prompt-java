@@ -1,4 +1,4 @@
-package de.arthurpicht.prompt.formattedChunks;
+package de.arthurpicht.prompt.color;
 
 import com.diogonunes.jcolor.AnsiFormat;
 import com.diogonunes.jcolor.Attribute;
