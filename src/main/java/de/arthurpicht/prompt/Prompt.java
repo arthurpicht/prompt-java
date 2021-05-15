@@ -4,12 +4,13 @@ import de.arthurpicht.prompt.formattedChunks.*;
 
 public class Prompt {
 
-    public static String prompt() {
+    public static String prompt(String exitCode) {
 
         String prompt;
         try {
             prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + Signs.whiteColon()
                     + WorkingDirChunk.get() + Branch.get()
+                    + ExitStatus.get(exitCode)
                     + Signs.termination();
 
             // escape trailing $ to prevent unexpected behavior (jumping back cursor), see:
@@ -26,7 +27,8 @@ public class Prompt {
     }
 
     public static void main(String[] args) {
-        System.out.println(prompt());
+        String exitCode = args.length > 0 ? args[0] : "";
+        System.out.println(prompt(exitCode));
     }
 
 }

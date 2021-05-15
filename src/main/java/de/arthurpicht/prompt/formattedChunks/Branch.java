@@ -10,14 +10,18 @@ import java.nio.file.Path;
 public class Branch {
 
     public static String get() {
-        BranchStatus branchStatus = Git.getBranchStatus();
-        return getString(branchStatus);
+        if (Git.hasGit()) {
+            BranchStatus branchStatus = Git.getBranchStatus();
+            return getString(branchStatus);
+        } else {
+            return "";
+        }
     }
 
-    public static String get(Path workingDir) {
-        BranchStatus branchStatus = Git.getBranchStatus(workingDir);
-        return getString(branchStatus);
-    }
+//    public static String get(Path workingDir) {
+//        BranchStatus branchStatus = Git.getBranchStatus(workingDir);
+//        return getString(branchStatus);
+//    }
 
     private static String getString(BranchStatus branchStatus) {
         if (branchStatus.isNoGit()) return "";
