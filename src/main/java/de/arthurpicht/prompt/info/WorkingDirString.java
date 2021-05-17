@@ -1,8 +1,8 @@
 package de.arthurpicht.prompt.info;
 
-public class WorkingDir {
+public class WorkingDirString {
 
-    public static String getWorkingDir() {
+    public static String get() {
 //        Path currentPath = Paths.get("");
 //        return currentPath.toAbsolutePath().toString();
 

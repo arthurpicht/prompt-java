@@ -16,7 +16,7 @@ public class UserAtHost {
             userAtHost.append(Color.colorize(UserName.getUserName(), Colors.greenText));
         }
 
-        userAtHost.append(Signs.whiteAdd());
+        userAtHost.append(Symbols.whiteAdd());
 
         userAtHost.append(Color.colorize(HostName.getHostName(), Colors.greenText));
 

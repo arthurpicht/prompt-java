@@ -8,10 +8,10 @@ public class Prompt {
 
         String prompt;
         try {
-            prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + Signs.whiteColon()
-                    + WorkingDirChunk.get() + Branch.get()
+            prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + Symbols.whiteColon()
+                    + WorkingDir.get() + GitBranch.get()
                     + ExitStatus.get(exitCode)
-                    + Signs.termination();
+                    + Symbols.termination();
 
             // escape trailing $ to prevent unexpected behavior (jumping back cursor), see:
             // https://stackoverflow.com/questions/37424743/sometimes-cursor-jumps-to-start-of-line-in-bash-prompt
@@ -27,6 +27,11 @@ public class Prompt {
     }
 
     public static void main(String[] args) {
+        if (args.length > 0 && args[0].equals("--version")) {
+            System.out.println("prompt-1.0-SNAPSHOT");
+            System.out.println("https://github.com/arthurpicht/prompt-java");
+            System.exit(0);
+        }
         String exitCode = args.length > 0 ? args[0] : "";
         System.out.println(prompt(exitCode));
     }

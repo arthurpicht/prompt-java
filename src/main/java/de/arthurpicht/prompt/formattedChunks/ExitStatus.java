@@ -19,7 +19,7 @@ public class ExitStatus {
 
     public static String get(String exitCode) {
         if (!exitCode.equals("") && !exitCode.equals("0")) {
-            return Signs.whiteColon() + Color.colorize(exitCode, Colors.redText);
+            return Symbols.whiteColon() + Color.colorize(exitCode, Colors.redText);
         } else {
             return "";
         }

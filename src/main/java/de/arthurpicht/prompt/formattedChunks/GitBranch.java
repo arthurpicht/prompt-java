@@ -7,7 +7,7 @@ import de.arthurpicht.prompt.info.Git;
 
 import java.nio.file.Path;
 
-public class Branch {
+public class GitBranch {
 
     public static String get() {
         if (Git.hasGit()) {
@@ -18,10 +18,13 @@ public class Branch {
         }
     }
 
-//    public static String get(Path workingDir) {
-//        BranchStatus branchStatus = Git.getBranchStatus(workingDir);
-//        return getString(branchStatus);
-//    }
+    /**
+     * For test purposes.
+     */
+    public static String get(Path workingDir) {
+        BranchStatus branchStatus = Git.getBranchStatus(workingDir);
+        return getString(branchStatus);
+    }
 
     private static String getString(BranchStatus branchStatus) {
         if (branchStatus.isNoGit()) return "";

@@ -6,7 +6,7 @@ import de.arthurpicht.prompt.color.Color;
 import de.arthurpicht.prompt.color.Colors;
 import de.arthurpicht.prompt.info.UserName;
 
-public class Signs {
+public class Symbols {
 
     public static String whiteColon() {
         return getSign(":", Colors.whiteText);
@@ -18,6 +18,10 @@ public class Signs {
 
     public static String darkGreenAdd() {
         return getSign("@", Colors.darkGreenText);
+    }
+
+    public static String yellowDegree() {
+        return getSign("°", Colors.yellowText);
     }
 
     private static String getSign(String sign, AnsiFormat ansiFormat) {

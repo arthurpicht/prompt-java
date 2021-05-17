@@ -2,12 +2,12 @@ package de.arthurpicht.prompt.formattedChunks;
 
 import de.arthurpicht.prompt.color.Color;
 import de.arthurpicht.prompt.color.Colors;
-import de.arthurpicht.prompt.info.WorkingDir;
+import de.arthurpicht.prompt.info.WorkingDirString;
 
-public class WorkingDirChunk {
+public class WorkingDir {
 
     public static String get() {
-            return Color.colorize(WorkingDir.getWorkingDir(), Colors.blueText);
+            return Color.colorize(WorkingDirString.get(), Colors.blueText);
     }
 
 }
