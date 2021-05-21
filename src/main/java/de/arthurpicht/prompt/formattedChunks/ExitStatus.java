@@ -4,11 +4,11 @@ import de.arthurpicht.prompt.color.Color;
 import de.arthurpicht.prompt.color.Colors;
 import de.arthurpicht.prompt.info.ExitStatusOfLastCommand;
 
-/**
- * Does not work. Other shell than called from?!
- */
 public class ExitStatus {
 
+    /**
+     * Does not work. Other shell than called from?!
+     */
     public static String get() {
         String exitStatus = ExitStatusOfLastCommand.get();
         if (exitStatus.equals("0")) return "";

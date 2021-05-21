@@ -34,12 +34,17 @@ public class Symbols {
         return getSign("\u21a5", Colors.yellowText);
     }
 
-    public static String termination() {
+    public static String termination(String exitCode) {
+
         StringBuilder terminationSign = new StringBuilder();
         if (UserName.getUserName().equals("root")) {
             terminationSign.append(getSign("#", Colors.redText));
         } else {
-            terminationSign.append(getSign("$", Colors.whiteText));
+            AnsiFormat terminationColor = Colors.whiteText;
+            if (!exitCode.equals("") && !exitCode.equals("0")) {
+                terminationColor = Colors.redText;
+            }
+            terminationSign.append(getSign("$", terminationColor));
         }
         terminationSign.append(" ");
 
