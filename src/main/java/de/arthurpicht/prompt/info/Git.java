@@ -23,6 +23,19 @@ public class Git {
         }
     }
 
+    public static boolean isUnderGitControl(Path repoPath) {
+        List<String> commands = List.of("git", "rev-parse", "--git-dir");
+        try {
+            Process process = new ProcessBuilder().command(commands).directory(repoPath.toFile()).start();
+            List<String> result = InputStreamHelper.asStringList(process.getInputStream());
+            process.waitFor();
+            return (!result.isEmpty());
+        } catch (IOException | InterruptedException e) {
+            ExceptionHandler.handle(e);
+            return false;
+        }
+    }
+
     public static String getBranchName(Path workingDir) {
         try {
             Process process = new ProcessBuilder()
@@ -47,6 +60,7 @@ public class Git {
     }
 
     public static BranchStatus getBranchStatus(Path workingDir) {
+        if (!isUnderGitControl(workingDir)) return BranchStatus.getInstanceNoGit();
         String branchName = getBranchName(workingDir);
         if (branchName.isEmpty()) return BranchStatus.getInstanceNoGit();
         if (hasUncommitedChanges(workingDir)) return BranchStatus.getInstanceChanged(branchName);

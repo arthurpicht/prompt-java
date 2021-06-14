@@ -28,7 +28,7 @@ public class Prompt {
 
     public static void main(String[] args) {
         if (args.length > 0 && args[0].equals("--version")) {
-            System.out.println("prompt-1.0-SNAPSHOT");
+            System.out.println("prompt-0.0.1-SNAPSHOT-20210614");
             System.out.println("https://github.com/arthurpicht/prompt-java");
             System.exit(0);
         }
