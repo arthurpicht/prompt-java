@@ -8,7 +8,7 @@ public class Prompt {
 
         String prompt;
         try {
-            prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + Symbols.whiteColon()
+            prompt = SshConnection.getSshSign() + Infrastructure.get() + UserAtHost.get() + ":"
                     + WorkingDir.get() + GitBranch.get()
 //                    + ExitStatus.get(exitCode)
                     + Symbols.termination(exitCode);
@@ -28,7 +28,7 @@ public class Prompt {
 
     public static void main(String[] args) {
         if (args.length > 0 && args[0].equals("--version")) {
-            System.out.println("prompt-0.0.1-SNAPSHOT-20210614");
+            System.out.println("prompt-0.0.1-SNAPSHOT-20210630");
             System.out.println("https://github.com/arthurpicht/prompt-java");
             System.exit(0);
         }

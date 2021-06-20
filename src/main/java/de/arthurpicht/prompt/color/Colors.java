@@ -1,5 +1,6 @@
 package de.arthurpicht.prompt.color;
 
+import com.diogonunes.jcolor.Ansi;
 import com.diogonunes.jcolor.AnsiFormat;
 import com.diogonunes.jcolor.Attribute;
 
@@ -11,5 +12,6 @@ public class Colors {
     public static final AnsiFormat blueText = new AnsiFormat(Attribute.BLUE_TEXT(), Attribute.BOLD());
     public static final AnsiFormat yellowText = new AnsiFormat(Attribute.YELLOW_TEXT(), Attribute.BOLD());
     public static final AnsiFormat whiteText = new AnsiFormat(Attribute.BRIGHT_WHITE_TEXT(), Attribute.BOLD());
+    public static final AnsiFormat clearText = new AnsiFormat(Attribute.CLEAR());
 
 }

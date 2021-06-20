@@ -3,6 +3,9 @@ package de.arthurpicht.prompt.info;
 public class UserName {
 
     public static String getUserName() {
-        return System.getProperty("user.name");
+        String username = System.getProperty("user.name");
+        if (username == null || username.isEmpty()) username = "?";
+        return username;
     }
+
 }

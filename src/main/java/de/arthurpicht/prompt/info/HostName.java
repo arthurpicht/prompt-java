@@ -6,12 +6,14 @@ import java.net.UnknownHostException;
 public class HostName {
 
     public static String getHostName() {
+        String host;
         try {
-            return InetAddress.getLocalHost().getHostName();
+            host = InetAddress.getLocalHost().getHostName();
+            if (host == null || host.isEmpty()) host = "?";
         } catch (UnknownHostException e) {
-            return "unknownHost";
+            host = "?";
         }
+        return host;
     }
-
 
 }

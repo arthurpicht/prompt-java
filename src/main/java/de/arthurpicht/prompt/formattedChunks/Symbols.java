@@ -12,12 +12,16 @@ public class Symbols {
         return getSign(":", Colors.whiteText);
     }
 
-    public static String whiteAdd() {
+    public static String whiteAt() {
         return getSign("@", Colors.whiteText);
     }
 
-    public static String darkGreenAdd() {
+    public static String darkGreenAt() {
         return getSign("@", Colors.darkGreenText);
+    }
+
+    public static String getGreenAt() {
+        return getSign("@", Colors.greenText);
     }
 
     public static String yellowDegree() {
@@ -40,7 +44,7 @@ public class Symbols {
         if (UserName.getUserName().equals("root")) {
             terminationSign.append(getSign("#", Colors.redText));
         } else {
-            AnsiFormat terminationColor = Colors.whiteText;
+            AnsiFormat terminationColor = Colors.clearText;
             if (!exitCode.equals("") && !exitCode.equals("0")) {
                 terminationColor = Colors.redText;
             }
@@ -50,6 +54,5 @@ public class Symbols {
 
         return terminationSign.toString();
     }
-
 
 }

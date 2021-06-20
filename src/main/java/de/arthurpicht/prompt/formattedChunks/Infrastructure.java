@@ -7,8 +7,12 @@ import de.arthurpicht.prompt.info.InfrastructureFile;
 public class Infrastructure {
 
     public static String get() {
-        String infrastructure = InfrastructureFile.get();
-        return getString(infrastructure);
+        try {
+            String infrastructure = InfrastructureFile.get();
+            return getString(infrastructure);
+        } catch (Error | Exception e) {
+            return "";
+        }
     }
 
     private static String getString(String infrastructure) {

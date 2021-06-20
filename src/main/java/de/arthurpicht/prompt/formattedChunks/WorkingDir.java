@@ -7,7 +7,14 @@ import de.arthurpicht.prompt.info.WorkingDirString;
 public class WorkingDir {
 
     public static String get() {
-            return Color.colorize(WorkingDirString.get(), Colors.blueText);
+        String workingDir;
+        try {
+            workingDir = WorkingDirString.get();
+        } catch (Exception | Error e) {
+            workingDir = "?";
+        }
+
+        return Color.colorize(workingDir, Colors.blueText);
     }
 
 }
