@@ -52,7 +52,7 @@ task fatJar(type: Jar, dependsOn: extractDependencies) {
 
 task nativeImage(type: Exec, dependsOn: fatJar) {
     mkdir "$buildDir/native"
-    commandLine "/man/java/graalvm/bin/native-image", "-jar", "$buildDir/fatjar/prompt-java-1.0-SNAPSHOT.jar", "$buildDir/native/prompt"
+    commandLine "native-image", "-jar", "$buildDir/fatjar/prompt-java-1.0-SNAPSHOT.jar", "$buildDir/native/prompt"
 }
 
 task javaversion(type: Exec) {

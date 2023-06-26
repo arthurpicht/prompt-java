@@ -16,8 +16,8 @@ to a native binary by graalVM.
 ### Prerequisites
 
 * gradle
-* graalVM including installation of module for compiling to native
-* modify `build.gradle` to match local graalVM installation
+* graalVM including native-image
+* put `native-iamge` on PATH or modify `build.gradle` to match your local graalVM installation
 
 ### Execute Build
 
